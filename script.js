@@ -40,6 +40,34 @@ const player = new Fighter({
     offset: {
         x: 0,
         y: 0 
+    },
+    imageSrc: './assets/Bunny/Idle.png',
+    framesMax: 8,
+    scale: 2.5,
+    offset:{
+        x: 215 ,
+        y: 157
+    },
+    sprites: {
+        idle: {
+            imageSrc: './assets/Bunny/Idle.png',
+            framesMax: 8
+        },
+        run: {
+            imageSrc: './assets/Bunny/Run.png',
+            framesMax: 8,
+           
+        },
+        jump: {
+            imageSrc: './assets/Bunny/Jump.png',
+            framesMax: 2,
+            
+        },
+        fall: {
+            imageSrc: './assets/Bunny/Fall.png',
+            framesMax: 2,
+        
+        }
     }
 
 
@@ -64,7 +92,7 @@ const enemy = new Fighter({
 
 
 
-console.log(player);
+console.log (player);
 
 
 const keys = {
@@ -96,16 +124,28 @@ function animate() {
     shop.update()
 
     player.update()
-    enemy.update()
+    //enemy.update()
 
     player.velocity.x = 0
     enemy.velocity.x = 0
 
     //player movements
+
     if(keys.a.pressed && player.lastKey === 'a'){
         player.velocity.x = -5
+        player.switchSprite('run')
     } else if (keys.d.pressed && player.lastKey === 'd'){
         player.velocity.x = 5
+        player.switchSprite('run')
+    } else {
+        player.switchSprite('idle')
+    }
+    //player jumping
+
+    if (player.velocity.y < 0){
+        player.switchSprite('jump')
+    } else if(player.velocity.y > 0){
+        player.switchSprite('fall')
     }
     //enemy movements
     if(keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft'){

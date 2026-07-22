@@ -1,6 +1,6 @@
 
 class Sprite {
-    constructor({position, imageSrc, scale = 1, framesMax = 1}){
+    constructor({position, imageSrc, scale = 1, framesMax = 1, offset = {x:0, y:0} }){
         this.position = position
         this.height = 150
         this.width = 50
@@ -11,7 +11,7 @@ class Sprite {
         this.framesCurrent = 0
         this.framesElapsed = 0
         this.framesHold = 6
-        
+        this.offset = offset
         
     }
 
@@ -24,15 +24,14 @@ class Sprite {
             this.image.width / this.framesMax,
             this.image.height,
 
-            this.position.x, 
-            this.position.y, 
+            this.position.x - this.offset.x, 
+            this.position.y - this.offset.y, 
             (this.image.width / this.framesMax) * this.scale, 
             this.image.height * this.scale
         )     
     }
 
-    update() {
-        this.draw()
+    animateFrames(){
         this.framesElapsed++
         if(this.framesElapsed % this.framesHold === 0){
 
@@ -42,15 +41,37 @@ class Sprite {
                 this.framesCurrent = 0
             }
         }
+    }
+
+    update() {
+        this.draw()
+        this.animateFrames()
     }   
 
  
 
 } 
 
-class Fighter {
-    constructor({position, velocity, color = 'red', offset}){
-        this.position = position
+class Fighter extends Sprite {
+    constructor({
+        position, 
+        velocity, 
+        color = 'red', 
+        imageSrc, scale = 1, 
+        framesMax = 1,
+        offset = {x: 0, y: 0},
+        sprites
+    })  {
+
+        super({
+            position,
+            imageSrc, 
+            scale, 
+            framesMax,
+            offset
+        })
+
+        
         this.velocity = velocity
         this.height = 150
         this.width = 50
@@ -67,29 +88,43 @@ class Fighter {
         this.color = color
         this.isAttacking
         this.health = 100 
-    }
+        this.framesCurrent = 0
+        this.framesElapsed = 0
+        this.framesHold = 6
+        this.sprites = sprites
 
-    draw() {
-        c.fillStyle = this.color
-        c.fillRect(this.position.x, this.position.y, this.width, this.height)
+        for (const sprite in sprites) {
+            sprites[sprite].image = new Image()
+            sprites[sprite].image.src = sprites[sprite].imageSrc
+            
+        }
 
        
-       //attackBox
-        if(this.isAttacking){
-            
-            c.fillStyle = 'green'
-            c.fillRect(
-                this.attackBox.position.x, 
-                this.attackBox.position.y, 
-                this.attackBox.width, 
-                this.attackBox.height
-            )
-        }
-        
     }
+
+    // draw() {
+    //     c.fillStyle = this.color
+    //     c.fillRect(this.position.x, this.position.y, this.width, this.height)
+
+       
+    //    //attackBox
+    //     if(this.isAttacking){
+            
+    //         c.fillStyle = 'green'
+    //         c.fillRect(
+    //             this.attackBox.position.x, 
+    //             this.attackBox.position.y, 
+    //             this.attackBox.width, 
+    //             this.attackBox.height
+    //         )
+    //     }
+        
+    // }
 
     update() {
         this.draw()
+        this.animateFrames()
+
         this.attackBox.position.x = this.position.x + this.attackBox.offset.x
         this.attackBox.position.y = this.position.y
 
@@ -98,9 +133,11 @@ class Fighter {
 
         if (this.position.y + this.height + this.velocity.y >= canvas.height - 50){
             this.velocity.y = 0
+            this.position.y = 376
         } else {
             this.velocity.y += gravity
         } 
+        console.log(this.position.y)
     }
 
     attack() {
@@ -108,6 +145,41 @@ class Fighter {
         setTimeout (() => {
             this.isAttacking = false
         }, 100)
+    }
+
+    switchSprite(sprite) {
+        switch (sprite) {
+            case 'idle':
+                if(this.image !== this.sprites.idle.image){
+                    this.image = this.sprites.idle.image
+                    this.framesMax = this.sprites.idle.framesMax
+                    this.framesCurrent = 0
+                }
+            break
+            case 'run':
+                if(this.image !== this.sprites.run.image){
+                   this.image = this.sprites.run.image
+                   this.framesMax= this.sprites.run.framesMax
+                   this.framesCurrent = 0
+                }
+    
+            break
+            case 'jump':
+                if(this.image !== this.sprites.jump.image){
+                    this.image = this.sprites.jump.image
+                    this.framesMax= this.sprites.jump.framesMax
+                    this.framesCurrent = 0
+                }
+            break
+            case 'fall':
+                if(this.image !== this.sprites.fall.image){
+                    this.image = this.sprites.fall.image
+                    this.framesMax= this.sprites.fall.framesMax
+                    this.framesCurrent = 0
+                }
+            break
+        }
+
     }
 
 } 
