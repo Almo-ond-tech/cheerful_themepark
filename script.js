@@ -72,7 +72,12 @@ const player = new Fighter({
             imageSrc: './assets/Bunny/Attack1.png',
             framesMax: 6,
         
-        }
+        },
+        takeHit: {
+                imageSrc: './assets/Bunny/Take Hit - white silhouette.png',
+                framesMax: 4,
+            }
+
     
     },
     attackBox: {
@@ -83,7 +88,6 @@ const player = new Fighter({
         width: 140,
         height: 50,
     }
-
 
 })
 
@@ -133,8 +137,12 @@ const enemy = new Fighter({
             imageSrc: './assets/Dragon/Attack1.png',
             framesMax: 4,
         
+        },
+
+        takeHit: {
+            imageSrc: './assets/Dragon/Take Hit.png',
+            framesMax: 3,
         }
-    
     },
     attackBox: {
         offset: {
@@ -222,7 +230,7 @@ function animate() {
         enemy.switchSprite('fall')
     }
 
-    //detect collision
+    //detect collision & enemy gets hit
 
     if( 
        rectangularCollision ({
@@ -231,8 +239,10 @@ function animate() {
        }) &&
         player.isAttacking && player.framesCurrent === 4
     ) {
+
+        enemy.takeHit()
         player.isAttacking = false
-        enemy.health -= 20
+        
         document.querySelector('#enemyHealth').style.width = enemy.health + '%'
         console.log('wee')
     }
@@ -242,6 +252,7 @@ function animate() {
         player.isAttacking = false
     }
 
+    // detect collision & player gets hit
     if( 
        rectangularCollision ({
         rectangle1: enemy,
@@ -249,8 +260,7 @@ function animate() {
        }) &&
         enemy.isAttacking && enemy.framesCurrent === 2
     ) {
-        enemy.isAttacking = false
-        player.health -= 20
+        player.takeHit()
         document.querySelector('#playerHealth').style.width = player.health + '%'
         console.log('hoo')
     }
