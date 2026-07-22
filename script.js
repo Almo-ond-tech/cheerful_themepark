@@ -195,6 +195,9 @@ function animate() {
     background.update()
     shop.update()
 
+    c.fillStyle = 'rgba(7, 56, 50, 0.37)'
+    c.fillRect(0, 0, canvas.width, canvas.height)
+
     player.update()
     enemy.update()
 
