@@ -22,3 +22,9 @@
     Left Arrow  : Move Left
     Right Arrow  : Move Right
     Down Arrow  : Attack
+### Tech Stack
+<ul>
+    <li> HTML 5 Canvas </li>
+    <li> JavaScript </li>
+    <li> CSS </li>
+</ul>
