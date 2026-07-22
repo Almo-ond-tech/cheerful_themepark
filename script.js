@@ -74,9 +74,14 @@ const player = new Fighter({
         
         },
         takeHit: {
-                imageSrc: './assets/Bunny/Take Hit - white silhouette.png',
-                framesMax: 4,
-            }
+            imageSrc: './assets/Bunny/Take Hit - white silhouette.png',
+            framesMax: 4,
+        },
+        death: {
+            imageSrc: './assets/Bunny/Death.png',
+            framesMax: 6,
+        }
+
 
     
     },
@@ -138,10 +143,13 @@ const enemy = new Fighter({
             framesMax: 4,
         
         },
-
         takeHit: {
             imageSrc: './assets/Dragon/Take Hit.png',
             framesMax: 3,
+        },
+        death: {
+            imageSrc: './assets/Dragon/Death.png',
+            framesMax: 7,
         }
     },
     attackBox: {
