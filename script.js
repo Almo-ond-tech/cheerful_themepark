@@ -92,6 +92,11 @@ const player = new Fighter({
         }, 
         width: 140,
         height: 50,
+    },
+    maxPosition:{
+        xBegin: -40,
+        xEnd: 1000,
+        y: -100
     }
 
 })
@@ -159,6 +164,11 @@ const enemy = new Fighter({
         }, 
         width: 170,
         height: 50,
+    },
+    maxPosition:{
+        xBegin: -40,
+        xEnd: 1000,
+        y: -190
     }
 })
 

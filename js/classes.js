@@ -61,7 +61,8 @@ class Fighter extends Sprite {
         framesMax = 1,
         offset = {x: 0, y: 0},
         sprites,
-        attackBox = {offset: {}, width: undefined, height: undefined }
+        attackBox = {offset: {}, width: undefined, height: undefined },
+        maxPosition
     })  {
 
         super({
@@ -86,6 +87,7 @@ class Fighter extends Sprite {
             width: attackBox.width,
             height: attackBox.height
         }
+        this.maxPosition = maxPosition
         this.color = color
         this.isAttacking
         this.health = 100 
@@ -147,7 +149,19 @@ class Fighter extends Sprite {
         } else {
             this.velocity.y += gravity
         } 
+
+        if (this.position.y + this.velocity.y <= this.maxPosition.y ){
+            console.log('maxY')
+            this.position.y = this.position.y - (this.position.y - this.velocity.y)
+        } 
+        if (this.position.x <= this.maxPosition.xBegin || this.position.x >= this.maxPosition.xEnd  ){
+            console.log('maxX')
+            //console.log(this.position.x)
+            this.position.x = this.position.x - this.velocity.x
+        }
+
         //console.log(this.position.y)
+        
     }
 
     attack() {
