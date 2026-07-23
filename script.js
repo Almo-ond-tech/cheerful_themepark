@@ -33,6 +33,8 @@ const player = new Fighter({
         x: 0,
         y: 0,
     },
+    hitBoxW: 70 ,
+    hitBoxH: 150,
     velocity: {
         x: 0,
         y: 0
@@ -41,16 +43,16 @@ const player = new Fighter({
         x: 0,
         y: 0 
     },
-    imageSrc: './assets/Bunny/Idle.png',
+    imageSrc: './assets/Bunny/Idle2.png',
     framesMax: 8,
-    scale: 2.5,
+    scale: 1.5,
     offset:{
-        x: 215 ,
-        y: 157
+        x: 90 ,
+        y: 110
     },
     sprites: {
         idle: {
-            imageSrc: './assets/Bunny/Idle.png',
+            imageSrc: './assets/Bunny/Idle2.png',
             framesMax: 8
         },
         run: {
@@ -69,7 +71,7 @@ const player = new Fighter({
         
         },
         attack1: {
-            imageSrc: './assets/Bunny/Attack1.png',
+            imageSrc: './assets/Bunny/Attack1-5.png',
             framesMax: 6,
         
         },
@@ -87,11 +89,11 @@ const player = new Fighter({
     },
     attackBox: {
         offset: {
-            x: 100,
-            y: 50
+            x: 50,
+            y: -50
         }, 
-        width: 140,
-        height: 50,
+        width: 150,
+        height: 100,
     },
     maxPosition:{
         xBegin: -40,
@@ -104,28 +106,30 @@ const player = new Fighter({
 const enemy = new Fighter({
     
     position: {
-        x: 400,
+        x: 600,
         y: 115,
     },
+    hitBoxW: 150 ,
+    hitBoxH: 170,
     velocity: {
         x: 0,
         y: 0
     },
     color: 'blue',
     offset: {
-        x: -50,
+        x: 0,
         y: 0 
     },
-    imageSrc: './assets/Dragon/Idle.png',
+    imageSrc: './assets/Dragon/Idle2.png',
     framesMax: 4,
-    scale: 2.5,
+    scale: 1.5,
     offset:{
-        x: 215 ,
-        y: 172
+        x: 115 ,
+        y: 90
     },
     sprites: {
         idle: {
-            imageSrc: './assets/Dragon/Idle.png',
+            imageSrc: './assets/Dragon/Idle2.png',
             framesMax: 4
         },
         run: {
@@ -144,7 +148,7 @@ const enemy = new Fighter({
         
         },
         attack1: {
-            imageSrc: './assets/Dragon/Attack1.png',
+            imageSrc: './assets/Dragon/Attack1-5.png',
             framesMax: 4,
         
         },
@@ -159,11 +163,11 @@ const enemy = new Fighter({
     },
     attackBox: {
         offset: {
-            x: -170,
-            y: 50
+            x: -110,
+            y: -10
         }, 
-        width: 170,
-        height: 50,
+        width: 140,
+        height: 120,
     },
     maxPosition:{
         xBegin: -40,

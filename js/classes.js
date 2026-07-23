@@ -2,8 +2,6 @@
 class Sprite {
     constructor({position, imageSrc, scale = 1, framesMax = 1, offset = {x:0, y:0} }){
         this.position = position
-        this.height = 150
-        this.width = 50
         this.image = new Image()
         this.image.src = imageSrc
         this.scale = scale
@@ -55,9 +53,12 @@ class Sprite {
 class Fighter extends Sprite {
     constructor({
         position, 
+        hitBoxW, 
+        hitBoxH, 
         velocity, 
         color = 'red', 
-        imageSrc, scale = 1, 
+        imageSrc, 
+        scale = 1, 
         framesMax = 1,
         offset = {x: 0, y: 0},
         sprites,
@@ -75,8 +76,8 @@ class Fighter extends Sprite {
 
         
         this.velocity = velocity
-        this.height = 150
-        this.width = 50
+        this.height = hitBoxH
+        this.width = hitBoxW
         this.lastKey
         this.attackBox = {
             position: {
@@ -93,7 +94,7 @@ class Fighter extends Sprite {
         this.health = 100 
         this.framesCurrent = 0
         this.framesElapsed = 0
-        this.framesHold = 6
+        this.framesHold = 12
         this.sprites = sprites
         this.dead = false
 
@@ -138,7 +139,8 @@ class Fighter extends Sprite {
         this.attackBox.position.y = this.position.y + this.attackBox.offset.y 
 
         //draw attack box
-       // c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height,)
+        c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height,)
+        c.fillRect(this.position.x, this.position.y, this.width, this.height)
 
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
