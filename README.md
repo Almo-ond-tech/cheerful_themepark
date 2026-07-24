@@ -1,7 +1,8 @@
 # Two Player Fighting Game
-<img width="1040" height="591" alt="fighting-game" src="https://github.com/user-attachments/assets/c57e627a-112f-4b54-ac6a-333de58e11ff" />
+<img width="781" height="452" alt="cheerful-themepark" src="https://github.com/user-attachments/assets/a70a3af5-b7e3-4c10-89ef-914407306f4c" />
 
-<bold> !! Custom Animations !!</bold> 
+
+<bold> <h3>!! Custom Animations !!</h3></bold> 
 # Theme
 Inspiration from the novel GSGW (Got Dropped into a Ghost Story Still Gotta Work).
 Features two characters based on the mascots from the B-rank ghost story 
