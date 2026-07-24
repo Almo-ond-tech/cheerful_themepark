@@ -1,10 +1,10 @@
-# Two Player Fighting Game
+# Cheerful Theme Park
 <img width="781" height="452" alt="cheerful-themepark" src="https://github.com/user-attachments/assets/a70a3af5-b7e3-4c10-89ef-914407306f4c" />
 
 
 <bold> <h3>!! Custom Animations !!</h3></bold> 
 # Theme
-Inspiration from the novel GSGW (Got Dropped into a Ghost Story Still Gotta Work).
+Two player fighter game based on inspiration from the novel GSGW (Got Dropped into a Ghost Story Still Gotta Work).
 Features two characters based on the mascots from the B-rank ghost story 
 [Cheerful Theme Park!]. Magic Bunny Mascot is Player 1. Blue Dragon Mascot is Player 2
 
