@@ -13,16 +13,16 @@ const background = new Sprite({
         x: 0,
         y: 0
     },
-    imageSrc: './assets/background3.jpg'
+    imageSrc: './assets/background.jpg'
 })
 
 const shop = new Sprite({
     position: {
-        x: 600,
-        y: 120
+        x: 200,
+        y: 350
     },
     imageSrc: './assets/shop.png',
-    scale: 2.5,
+    scale: 1.5,
     framesMax: 6 
 
 })
@@ -56,17 +56,17 @@ const player = new Fighter({
             framesMax: 8
         },
         run: {
-            imageSrc: './assets/Bunny/Run.png',
+            imageSrc: './assets/Bunny/Run2.png',
             framesMax: 8,
            
         },
         jump: {
-            imageSrc: './assets/Bunny/Jump.png',
+            imageSrc: './assets/Bunny/Jump2.png',
             framesMax: 2,
             
         },
         fall: {
-            imageSrc: './assets/Bunny/Fall.png',
+            imageSrc: './assets/Bunny/Fall2.png',
             framesMax: 2,
         
         },
@@ -76,12 +76,12 @@ const player = new Fighter({
         
         },
         takeHit: {
-            imageSrc: './assets/Bunny/Take Hit - white silhouette.png',
+            imageSrc: './assets/Bunny/Take Hit2.png',
             framesMax: 4,
         },
         death: {
-            imageSrc: './assets/Bunny/Death.png',
-            framesMax: 6,
+            imageSrc: './assets/Bunny/Death2.png',
+            framesMax: 8,
         }
 
 
@@ -106,8 +106,8 @@ const player = new Fighter({
 const enemy = new Fighter({
     
     position: {
-        x: 600,
-        y: 115,
+        x: 900,
+        y: 145,
     },
     hitBoxW: 150 ,
     hitBoxH: 170,
@@ -133,17 +133,17 @@ const enemy = new Fighter({
             framesMax: 4
         },
         run: {
-            imageSrc: './assets/Dragon/Run.png',
+            imageSrc: './assets/Dragon/Run2.png',
             framesMax: 8,
            
         },
         jump: {
-            imageSrc: './assets/Dragon/Jump.png',
+            imageSrc: './assets/Dragon/Jump2.png',
             framesMax: 2,
             
         },
         fall: {
-            imageSrc: './assets/Dragon/Fall.png',
+            imageSrc: './assets/Dragon/Fall2.png',
             framesMax: 2,
         
         },
@@ -153,12 +153,12 @@ const enemy = new Fighter({
         
         },
         takeHit: {
-            imageSrc: './assets/Dragon/Take Hit.png',
-            framesMax: 3,
+            imageSrc: './assets/Dragon/Take Hit2.png',
+            framesMax: 4,
         },
         death: {
-            imageSrc: './assets/Dragon/Death.png',
-            framesMax: 7,
+            imageSrc: './assets/Dragon/Death2.png',
+            framesMax: 8,
         }
     },
     attackBox: {
@@ -209,7 +209,7 @@ function animate() {
     background.update()
     shop.update()
 
-    c.fillStyle = 'rgba(7, 56, 50, 0.37)'
+    c.fillStyle = 'hsla(214, 56%, 64%, 0.24)'
     c.fillRect(0, 0, canvas.width, canvas.height)
 
     player.update()
