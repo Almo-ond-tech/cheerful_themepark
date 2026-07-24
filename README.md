@@ -19,12 +19,33 @@
     A : Move Left
     D : Move Right
     Space : Attack
+### Advantages
+    <ul>
+        <li> Smaller Hitbox </li>
+        <li> Longer Attack Range </li>
+    </ul>
+### Disavantages
+   <ul>
+    <li> Slower Attack Speed </li>
+    <li> Narrower Attack Range </li>
+</ul>
+
     
   ### Player 2:
     Up Arrow : Jump
     Left Arrow  : Move Left
     Right Arrow  : Move Right
     Down Arrow  : Attack
+### Advantages
+<ul>
+    <li> Faster Attack Speed </li>
+    <li> Wider Attack Range </li>
+</ul>
+### Disadvantages
+<ul>
+    <li> Bigger Hitbox </li>
+    <li> Shorter Attack Range </li>
+</ul>
 ### Tech Stack
 <ul>
     <li> HTML 5 Canvas </li>
