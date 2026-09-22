@@ -24,7 +24,7 @@ Features two characters based on the mascots from the B-rank ghost story
     W : Jump
     A : Move Left
     D : Move Right
-    Space : Attack
+    S : Attack
 
 ### Advantages
 <ul>
